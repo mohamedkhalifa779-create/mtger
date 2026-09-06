@@ -251,6 +251,9 @@
   PRODUCTS DATA
   ============================================================ -->
   <script>
+    // ============================================================
+    // PRODUCTS DATA - BASE
+    // ============================================================
     const products = [
       {
         id: "d4-shoe-001",
@@ -692,8 +695,7 @@
     }
 
     // ============================================================
-// ============================================================
-    // ADMIN PANEL
+    // ADMIN PANEL - VERSION WITH GALLERY & EDIT
     // ============================================================
     const ADMIN_PASSWORD = '123456';
 
@@ -735,10 +737,10 @@
               <input type="text" id="adminImage" placeholder="https://m.media-amazon.com/images/...">
             </div>
             
-            <!-- ✅ NEW: معرض الصور (أكتر من صورة) -->
+            <!-- ✅ معرض الصور (أكتر من صورة) -->
             <div class="form-group" style="grid-column: span 2;">
               <label>معرض الصور (اكتب الروابط مفصولة بفاصلة ,)</label>
-              <input type="text" id="adminGallery" placeholder="https://m.media-amazon.com/images/I/51RLAzZmr8L._AC_SY575_.jpg, https://m.media-amazon.com/images/I/51GSIOpnuDL._AC_SY575_.jpg, https://m.media-amazon.com/images/I/61xYzQwXqZL._AC_SY575_.jpg">
+              <input type="text" id="adminGallery" placeholder="https://m.media-amazon.com/images/I/51RLAzZmr8L._AC_SY575_.jpg, https://m.media-amazon.com/images/I/51GSIOpnuDL._AC_SY575_.jpg">
               <small style="color:var(--muted);font-size:0.8rem;">💡 افصل بين كل رابط وفاصلة ,</small>
             </div>
             
@@ -747,25 +749,25 @@
               <textarea id="adminDescription" rows="2" placeholder="وصف المنتج المختصر"></textarea>
             </div>
             
-            <!-- ✅ NEW: المميزات -->
+            <!-- ✅ المميزات -->
             <div class="form-group" style="grid-column: span 2;">
               <label>المميزات (اكتب كل ميزة في سطر منفصل)</label>
               <textarea id="adminFeatures" rows="3" placeholder="خفيف الوزن ومريح&#10;مصنوع من جلد صناعي&#10;نعل مطاطي مانع للانزلاق"></textarea>
             </div>
             
-            <!-- ✅ NEW: المواصفات -->
+            <!-- ✅ المواصفات -->
             <div class="form-group" style="grid-column: span 2;">
               <label>المواصفات (الخاصية: القيمة، كل مواصفة في سطر منفصل)</label>
               <textarea id="adminSpecs" rows="3" placeholder="النوع: حذاء رياضي&#10;الفئة: رجالي&#10;الخامة: جلد صناعي"></textarea>
             </div>
             
-            <!-- ✅ NEW: المقاسات -->
+            <!-- ✅ المقاسات -->
             <div class="form-group">
               <label>المقاسات (مفصولة بفاصلة)</label>
               <input type="text" id="adminSizes" placeholder="39, 40, 41, 42, 43">
             </div>
             
-            <!-- ✅ NEW: الألوان -->
+            <!-- ✅ الألوان -->
             <div class="form-group">
               <label>الألوان (مفصولة بفاصلة)</label>
               <input type="text" id="adminColors" placeholder="أسود, أبيض, رمادي">
@@ -796,7 +798,7 @@
             </div>
             
             <div class="form-group" style="grid-column: span 2; display:flex; gap:12px; margin-top:8px;">
-              <button type="submit" class="btn-admin" style="flex:1;">➕ إضافة المنتج</button>
+              <button type="submit" class="btn-admin" style="flex:1;" id="adminSubmitBtn">➕ إضافة المنتج</button>
               <button type="button" onclick="clearAllProducts()" class="btn-danger" style="flex:0.5;">🗑️ حذف الكل</button>
             </div>
           </form>
@@ -813,6 +815,7 @@
                 <span class="sub" style="font-size:0.75rem;color:var(--muted);">📸 ${p.gallery?.length || 0} صورة</span>
               </div>
               <div class="actions">
+                <button onclick="editProduct('${p.id}')" class="btn-secondary" style="background:var(--gold);color:#0A0A0A;">✏️ تعديل</button>
                 <button onclick="deleteProduct('${p.id}')" class="btn-danger">🗑️ حذف</button>
               </div>
             </div>
@@ -873,6 +876,25 @@
             active: document.getElementById('adminActive').checked !== false
           };
 
+          // لو في editMode (تعديل)
+          if (window.editProductId) {
+            const index = products.findIndex(p => p.id === window.editProductId);
+            if (index > -1) {
+              products[index] = { ...newProduct, id: window.editProductId };
+              window.editProductId = null;
+              // استعادة زر الإضافة
+              const submitBtn = document.getElementById('adminSubmitBtn');
+              if (submitBtn) {
+                submitBtn.textContent = '➕ إضافة المنتج';
+                submitBtn.style.background = 'var(--gold)';
+              }
+              saveProductsToStorage();
+              showAdminPanel();
+              alert('✅ تم تحديث المنتج بنجاح!');
+              return;
+            }
+          }
+
           products.push(newProduct);
           saveProductsToStorage();
           showAdminPanel();
@@ -880,8 +902,57 @@
         });
       }
     }
+
     // ============================================================
-    // ADMIN ACTIONS
+    // EDIT PRODUCT - بتعبئة الفورم ببيانات المنتج
+    // ============================================================
+    function editProduct(id) {
+      const product = products.find(p => p.id === id);
+      if (!product) {
+        alert('❌ المنتج غير موجود!');
+        return;
+      }
+
+      // عرض لوحة التحكم أولاً
+      showAdminPanel();
+
+      // بعد ما تظهر، نملأ الفورم بعد تأخير بسيط
+      setTimeout(() => {
+        document.getElementById('adminTitle').value = product.title || '';
+        document.getElementById('adminSlug').value = product.slug || '';
+        document.getElementById('adminCategory').value = product.category || 'shoes';
+        document.getElementById('adminCategoryName').value = product.categoryName || '';
+        document.getElementById('adminImage').value = product.image || '';
+        document.getElementById('adminGallery').value = product.gallery ? product.gallery.join(', ') : '';
+        document.getElementById('adminDescription').value = product.shortDescription || '';
+        document.getElementById('adminFeatures').value = product.features ? product.features.join('\n') : '';
+        document.getElementById('adminSpecs').value = product.specifications ? product.specifications.map(s => `${s.label}: ${s.value}`).join('\n') : '';
+        document.getElementById('adminSizes').value = product.sizes ? product.sizes.join(', ') : '';
+        document.getElementById('adminColors').value = product.colors ? product.colors.join(', ') : '';
+        document.getElementById('adminNote').value = product.note || '';
+        document.getElementById('adminAffiliate').value = product.affiliateUrl || '';
+        document.getElementById('adminBadge').value = product.badge || '';
+        document.getElementById('adminFeatured').checked = product.featured || false;
+        document.getElementById('adminActive').checked = product.active !== false;
+
+        // تغيير زر الإضافة إلى "تحديث"
+        const submitBtn = document.getElementById('adminSubmitBtn');
+        if (submitBtn) {
+          submitBtn.textContent = '🔄 تحديث المنتج';
+          submitBtn.style.background = '#28a745';
+        }
+
+        // حفظ ID المنتج للتعديل
+        window.editProductId = id;
+
+        // تمرير إلى أعلى الصفحة
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    }
+    window.editProduct = editProduct;
+
+    // ============================================================
+    // ADMIN ACTIONS (Delete, Clear, Reset)
     // ============================================================
     function deleteProduct(id) {
       if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
