@@ -694,6 +694,9 @@
     // ============================================================
     // ADMIN PANEL
     // ============================================================
+    // ============================================================
+    // ADMIN PANEL
+    // ============================================================
     const ADMIN_PASSWORD = '123456';
 
     function showAdminPanel() {
@@ -733,14 +736,67 @@
               <label>رابط الصورة الرئيسية</label>
               <input type="text" id="adminImage" placeholder="https://m.media-amazon.com/images/...">
             </div>
+            
+            <!-- ✅ NEW: معرض الصور (أكتر من صورة) -->
+            <div class="form-group" style="grid-column: span 2;">
+              <label>معرض الصور (اكتب الروابط مفصولة بفاصلة ,)</label>
+              <input type="text" id="adminGallery" placeholder="https://m.media-amazon.com/images/I/51RLAzZmr8L._AC_SY575_.jpg, https://m.media-amazon.com/images/I/51GSIOpnuDL._AC_SY575_.jpg">
+              <small style="color:var(--muted);font-size:0.8rem;">💡 افصل بين كل رابط وفاصلة ,</small>
+            </div>
+            
             <div class="form-group" style="grid-column: span 2;">
               <label>وصف مختصر</label>
               <textarea id="adminDescription" rows="2" placeholder="وصف المنتج المختصر"></textarea>
             </div>
+            
+            <!-- ✅ NEW: المميزات -->
+            <div class="form-group" style="grid-column: span 2;">
+              <label>المميزات (اكتب كل ميزة في سطر منفصل)</label>
+              <textarea id="adminFeatures" rows="3" placeholder="خفيف الوزن ومريح&#10;مصنوع من جلد صناعي&#10;نعل مطاطي مانع للانزلاق"></textarea>
+            </div>
+            
+            <!-- ✅ NEW: المواصفات -->
+            <div class="form-group" style="grid-column: span 2;">
+              <label>المواصفات (الخاصية: القيمة، كل مواصفة في سطر منفصل)</label>
+              <textarea id="adminSpecs" rows="3" placeholder="النوع: حذاء رياضي&#10;الفئة: رجالي&#10;الخامة: جلد صناعي"></textarea>
+            </div>
+            
+            <!-- ✅ NEW: المقاسات -->
+            <div class="form-group">
+              <label>المقاسات (مفصولة بفاصلة)</label>
+              <input type="text" id="adminSizes" placeholder="39, 40, 41, 42, 43">
+            </div>
+            
+            <!-- ✅ NEW: الألوان -->
+            <div class="form-group">
+              <label>الألوان (مفصولة بفاصلة)</label>
+              <input type="text" id="adminColors" placeholder="أسود, أبيض, رمادي">
+            </div>
+            
+            <div class="form-group" style="grid-column: span 2;">
+              <label>ملاحظة قبل الشراء</label>
+              <textarea id="adminNote" rows="2" placeholder="نصيحة مهمة للمستخدم قبل الشراء"></textarea>
+            </div>
+            
             <div class="form-group" style="grid-column: span 2;">
               <label>رابط Amazon Affiliate</label>
               <input type="text" id="adminAffiliate" placeholder="https://amazon.eg/dp/...?tag=your-tag">
             </div>
+            
+            <div class="form-group" style="grid-column: span 2;">
+              <label>وسم (Badge) - اختياري</label>
+              <input type="text" id="adminBadge" placeholder="⭐ اختيار مميز">
+            </div>
+            
+            <div class="form-group" style="grid-column: span 2; display:flex; gap:16px; align-items:center;">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                <input type="checkbox" id="adminFeatured"> منتج مميز
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                <input type="checkbox" id="adminActive" checked> نشط
+              </label>
+            </div>
+            
             <div class="form-group" style="grid-column: span 2; display:flex; gap:12px; margin-top:8px;">
               <button type="submit" class="btn-admin" style="flex:1;">➕ إضافة المنتج</button>
               <button type="button" onclick="clearAllProducts()" class="btn-danger" style="flex:0.5;">🗑️ حذف الكل</button>
@@ -756,6 +812,7 @@
               <div class="info">
                 <span class="title">${p.title || 'بدون عنوان'}</span>
                 <span class="sub">${p.categoryName || p.category} ${p.badge ? '· ' + p.badge : ''}</span>
+                <span class="sub" style="font-size:0.75rem;color:var(--muted);">📸 ${p.gallery?.length || 0} صورة</span>
               </div>
               <div class="actions">
                 <button onclick="deleteProduct('${p.id}')" class="btn-danger">🗑️ حذف</button>
@@ -777,6 +834,25 @@
         form.addEventListener('submit', function(e) {
           e.preventDefault();
 
+          // جمع البيانات من الفورم
+          const galleryRaw = document.getElementById('adminGallery').value;
+          const gallery = galleryRaw ? galleryRaw.split(',').map(s => s.trim()).filter(s => s) : [];
+          
+          const featuresRaw = document.getElementById('adminFeatures').value;
+          const features = featuresRaw ? featuresRaw.split('\n').map(s => s.trim()).filter(s => s) : [];
+          
+          const specsRaw = document.getElementById('adminSpecs').value;
+          const specs = specsRaw ? specsRaw.split('\n').map(s => s.trim()).filter(s => s).map(line => {
+            const parts = line.split(':').map(p => p.trim());
+            return parts.length === 2 ? { label: parts[0], value: parts[1] } : null;
+          }).filter(s => s) : [];
+          
+          const sizesRaw = document.getElementById('adminSizes').value;
+          const sizes = sizesRaw ? sizesRaw.split(',').map(s => s.trim()).filter(s => s) : [];
+          
+          const colorsRaw = document.getElementById('adminColors').value;
+          const colors = colorsRaw ? colorsRaw.split(',').map(s => s.trim()).filter(s => s) : [];
+
           const newProduct = {
             id: 'product-' + Date.now(),
             slug: document.getElementById('adminSlug').value.trim() || 'product-' + Date.now(),
@@ -786,17 +862,17 @@
             audience: document.getElementById('adminCategory').value || 'men',
             categoryName: document.getElementById('adminCategoryName').value.trim() || 'أحذية',
             image: document.getElementById('adminImage').value.trim() || '',
-            gallery: [],
+            gallery: gallery,
             shortDescription: document.getElementById('adminDescription').value.trim() || '',
-            features: [],
-            specifications: [],
-            sizes: [],
-            colors: [],
-            note: '',
+            features: features,
+            specifications: specs,
+            sizes: sizes,
+            colors: colors,
+            note: document.getElementById('adminNote').value.trim() || '',
             affiliateUrl: document.getElementById('adminAffiliate').value.trim() || '',
-            badge: '',
-            featured: false,
-            active: true
+            badge: document.getElementById('adminBadge').value.trim() || '',
+            featured: document.getElementById('adminFeatured').checked || false,
+            active: document.getElementById('adminActive').checked !== false
           };
 
           products.push(newProduct);
@@ -806,7 +882,6 @@
         });
       }
     }
-
     // ============================================================
     // ADMIN ACTIONS
     // ============================================================
