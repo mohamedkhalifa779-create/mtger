@@ -20,7 +20,7 @@
     h1,h2,h3,h4,h5,h6{font-weight:600;line-height:1.2}
     .en{font-family:var(--font-en);letter-spacing:-0.01em}
     ::-webkit-scrollbar{width:6px}
-    ::-webkit-scrollbar-track{background:var(--bg-secondary)}
+    ::-webkit-scrollbar-track{background:var(--bg-secondary)}product
     ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:8px}
     .container{max-width:1280px;margin:0 auto;padding:0 24px}
     .section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:0.5rem}
@@ -256,225 +256,221 @@
     // ============================================================
     // PRODUCTS — جميع المنتجات (5 منتجات)
     // ============================================================
-    const products = [
-      // المنتج 1: KS4 للرجال
-      {
-        id: "ks4-shoe-001",
-        slug: "ks4-rajaly-abyad",
-        title: "حذاء رياضي أنيق KS4 للرجال باللون الأبيض والرمادي والأسود | حذاء جري خفيف الوزن بنعل مبطن | حذاء رياضي للارتداء اليومي",
-        brand: "KS4",
-        category: "shoes",
-        audience: "men",
-        categoryName: "أحذية رجالي",
-        image: "https://m.media-amazon.com/images/I/61f2irqUL1L._AC_SY695_.jpg",
-        gallery: [
-          "https://m.media-amazon.com/images/I/61tThOpYGXL._AC_SY695_.jpg",
-          "https://m.media-amazon.com/images/I/81Ch2iqmphL._AC_SY695_.jpg",
-          "https://m.media-amazon.com/images/I/61y2ogVRqnL._AC_SY695_.jpg"
-        ],
-        shortDescription: "حذاء رياضي أنيق KS4 للرجال بتصميم خفيف الوزن ومريح، مناسب للجري والمشي والتمارين اليومية. نعل مبطن يدعم القدم، وجلد صناعي جيد التهوية لراحة تدوم طوال اليوم.",
-        price: "1,295 جنيه",
-        features: [
-          "خفيف الوزن ومريح",
-          "مصنوع من جلد صناعي",
-          "نعل مطاطي مانع للانزلاق"
-        ],
-        specifications: [
-          { label: "النوع", value: "حذاء رياضي" },
-          { label: "الفئة", value: "رجالي" },
-          { label: "الخامة", value: "جلد صناعي" }
-        ],
-        sizes: ["39", "40", "41", "42", "43"],
-        colors: ["أسود", "أبيض", "رمادي"],
-        note: "تأكد من اختيار المقاس المناسب بمراجعة جدول المقاسات على صفحة أمازون.",
-        affiliateUrl: "https://link.amazon/B0a0Ib987",
-        badge: "⭐ اختيار مميز",
-        featured: true,
-        active: true
-      },
-      // المنتج 2: Testa Toro M2 (Retro Look)
-      {
-        id: "testa-toro-m2-001",
-        slug: "retro-look-m2",
-        title: "حذاء رياضي ريترو لوك ام 2 للرجال من تيستا تورو - جزء علوي صناعي جيد التهوية، مريح مبطن، تصميم منخفض",
-        brand: "Testa Toro",
-        category: "shoes",
-        audience: "men",
-        categoryName: "أحذية رجالي",
-        image: "https://m.media-amazon.com/images/I/61rlfzrTkVL._AC_SY695_.jpg",
-        gallery: [
-          "https://m.media-amazon.com/images/I/51Nf+CyDSSL._AC_SY695_.jpg",
-          "https://m.media-amazon.com/images/I/519cI2MQ39L._AC_SY695_.jpg",
-          "https://m.media-amazon.com/images/I/51EQpviUOQL._AC_SY695_.jpg"
-        ],
-        shortDescription: "حذاء رياضي بتصميم عصري يجمع بين الراحة والأناقة. يتميز ببطانة مريحة وجزء علوي خفيف الوزن وجيد التهوية، مع نعل يمتص الصدمات. مناسب للارتداء اليومي والرياضي، ويتماشى مع الملابس الكاجوال والرياضية.",
-        price: "1,295 جنيه",
-        features: [
-          "راحة فائقة: بطانة متخصصة ونعل يمتص الصدمات للارتداء طوال اليوم",
-          "تهوية ممتازة: جزء علوي خفيف الوزن وجيد التهوية للحفاظ على برودة القدمين",
-          "تصميم عصري: ينسجم مع الملابس الكاجوال والرياضية",
-          "مواد متينة: منسوجات متطورة وجلد مقاوم للاهتراء",
-          "متعدد الاستخدامات: مناسب للارتداء اليومي والتمارين الرياضية",
-          "خفيف الوزن: يقلل من إجهاد القدمين أثناء المشي والجري"
-        ],
-        specifications: [
-          { label: "النوع", value: "حذاء رياضي كاجوال" },
-          { label: "الفئة", value: "رجالي" },
-          { label: "الخامة", value: "جلد صناعي + شبك" },
-          { label: "اللون", value: "أسود / أبيض / رمادي" },
-          { label: "المقاسات", value: "41 - 44" },
-          { label: "الاستخدام", value: "يومي - رياضي" },
-          { label: "النعل", value: "مطاط مانع للانزلاق" }
-        ],
-        sizes: ["41", "42", "43", "44"],
-        colors: ["أسود", "أبيض"],
-        note: "تأكد من اختيار المقاس المناسب بمراجعة جدول المقاسات على صفحة أمازون. السعر الحالي 1,295 جنيه وقد يتغير.",
-        affiliateUrl: "https://link.amazon/B07WTKtZ6",
-        badge: "⭐ اختيار مميز",
-        featured: true,
-        active: true
-      },
-      // المنتج 3: طقم نسائي 3 قطع
-      {
-        id: "women-set-419",
-        slug: "3-piece-womens-soft-set-code-419",
-        title: "سوت حريمي 3 قطع وايد ليج بدي + بنطلون + كارديجان مشجر طويل خامة مستوردة سوفت طقم شيك للخروجات والمناسبات كود 419",
-        brand: "",
-        category: "women",
-        audience: "women",
-        categoryName: "طقم نسائي شيك",
-        image: "https://m.media-amazon.com/images/I/61J41n+tHeL._AC_SY679_.jpg",
-        gallery: [
-          "https://m.media-amazon.com/images/I/41lb26u3qrL._AC_.jpg",
-          "https://m.media-amazon.com/images/I/41+rHy8Il-L._AC_.jpg",
-          "https://m.media-amazon.com/images/I/41Z+UnYleWL._AC_.jpg"
-        ],
-        shortDescription: "طقم أنيق وراقي مكون من 3 قطع: بدي وايد ليج مريح، بنطلون كلاسيك، وكارديجان طويل مشجر بكبسولات. خامة مستوردة ناعمة (سوفت) تناسب البشرة. مناسب للخروجات، العزومات، والمناسبات. كود المنتج: 419",
-        price: "899 جنيه",
-        features: [
-          "خامة مستوردة سوفت وناعمة",
-          "تصميم شيك وأنيق",
-          "مناسب للخروجات والمناسبات",
-          "3 قطع متكاملة (بدي + بنطلون + كارديجان)",
-          "كارديجان طويل مشجر بكبسولات أنيقة",
-          "وايد ليج بدي مريح وفضفاض"
-        ],
-        specifications: [
-          { label: "النوع", value: "طقم نسائي" },
-          { label: "الفئة", value: "حريمي" },
-          { label: "الخامة", value: "مستوردة سوفت" }
-        ],
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["اسود في بيج", "بترولي في بيج", "نبيتي في بيج"],
-        note: "السعر: 899.00 جنيه مصري 🇪🇬\n📏 يُرجى مراجعة جدول المقاسات قبل الطلب لضمان الحصول على المقاس المناسب.",
-        affiliateUrl: "https://link.amazon/B07MGGV0M",
-        badge: "⭐ اختيار مميز",
-        featured: true,
-        active: true
-      },
-      // المنتج 4: Testa Toro M2 (Retro) - إصدار بخصم 30%
-      {
-        id: "testa-toro-m2-002",
-        slug: "testa-toro-m2-retro",
-        title: "حذاء رياضي ريترو لوك ام 2 للرجال من تيستا تورو - جزء علوي صناعي جيد التهوية، مريح مبطن، تصميم منخفض",
-        brand: "Testa Toro",
-        category: "shoes",
-        audience: "men",
-        categoryName: "أحذية رجالي",
-        image: "https://m.media-amazon.com/images/I/617gdHBzaXL._AC_SY695_.jpg",
-        gallery: [
-          "https://m.media-amazon.com/images/I/61J78CjQQNL._AC_SY695_.jpg",
-          "https://m.media-amazon.com/images/I/71xVbRlqYdL._AC_SY695_.jpg",
-          "https://m.media-amazon.com/images/I/712OBrrdaVL._AC_SY695_.jpg",
-          "https://m.media-amazon.com/images/I/61jNbCq6BLL._AC_SY695_.jpg"
-        ],
-        shortDescription: "حذاء رياضي بتصميم ريترو عصري من تيستا تورو، يتميز بجزء علوي صناعي جيد التهوية وبطانة مريحة. تصميم منخفض بسحّاب انزلاقي للارتداء المريح بدون أربطة، مناسب للاستخدام اليومي والمشي في البيئات الداخلية والمكتبية.",
-        price: "439 جنيه",
-        features: [
-          "✓ إغلاق بسحّاب انزلاقي: تصميم مريح بدون أربطة أو أحزمة",
-          "✓ بناء كعب مسطح: توسيد معتدل لدعم مريح للمشي",
-          "✓ تصميم منخفض: مقدمة مستديرة مع تصميم كاب تو أنيق",
-          "✓ مناسب للاستخدام اليومي: مثالي للمشي في البيئات الداخلية والمكتبية والمدارس",
-          "✓ جيد التهوية: جزء علوي صناعي يسمح بتهوية ممتازة",
-          "✓ متعدد الاستخدامات: يناسب جميع الفصول والمناسبات الكاجوال"
-        ],
-        specifications: [
-          { label: "العلامة التجارية", value: "Testa Toro" },
-          { label: "النوع", value: "حذاء رياضي كاجوال (Retro Look)" },
-          { label: "الفئة", value: "رجالي" },
-          { label: "الخامة الخارجية", value: "مطاط" },
-          { label: "نوع السحّاب", value: "سحب (انزلاقي)" },
-          { label: "مستوى مقاومة الماء", value: "غير مقاومة للماء" },
-          { label: "اللون", value: "رمادي / أسود / كحلي / أبيض" },
-          { label: "المقاسات", value: "41 - 45" },
-          { label: "الارتفاع", value: "منخفض" },
-          { label: "الكعب", value: "كعب مسطح مع توسيد معتدل" },
-          { label: "الاستخدام", value: "يومي - مشي - مكتبي - داخلي" },
-          { label: "المقدمة", value: "مستديرة مع تصميم كاب تو" },
-          { label: "الفصول", value: "مناسب لجميع الفصول" }
-        ],
-        sizes: ["41", "42", "43", "44", "45"],
-        colors: ["رمادي", "أسود", "كحلي", "أبيض"],
-        note: "تأكد من اختيار المقاس المناسب بمراجعة مخطط المقاسات على صفحة أمازون. السعر الحالي 439 جنيه (كان 629 جنيه) وقد يتغير. هذا المنتج من العلامة التجارية Testa Toro.",
-        affiliateUrl: "https://link.amazon/B0fwmrgPk",
-        badge: "🔥 خصم 30%",
-        featured: true,
-        active: true
-      },
-      // المنتج 5: روب صلاة للنساء
-      {
-        id: "prayer-robe-001",
-        slug: "prayer-robe-women-cotton",
-        title: "روب صلاة للنساء مقاس واحد - فستان صلاة إسلامي من القطن عباية محتشمة للصلاة والعبادة",
-        brand: "Burak Tekstil",
-        category: "women",
-        audience: "women",
-        categoryName: "ملابس حريمي",
-        image: "https://m.media-amazon.com/images/I/61nEoIBj1EL._AC_SY606_.jpg",
-        gallery: [
-          "https://m.media-amazon.com/images/I/61oNF9eXcxL._AC_SY606_.jpg",
-          "https://m.media-amazon.com/images/I/71vSrdilhIL._AC_SX569_.jpg",
-          "https://m.media-amazon.com/images/I/715owwYvIGL._AC_SX569_.jpg",
-          "https://m.media-amazon.com/images/I/81GHVHhoWKL._AC_SX569_.jpg",
-          "https://m.media-amazon.com/images/I/819mhfvq1zL._AC_SX569_.jpg",
-          "https://m.media-amazon.com/images/I/71toIHpCkfL._AC_SX569_.jpg",
-          "https://m.media-amazon.com/images/I/61NRDvwGEfL._AC_SY606_.jpg"
-        ],
-        shortDescription: "روب صلاة قطني ناعم ومريح للنساء، مصمم بتغطية كاملة وقصة واسعة ومحتشمة. مناسب للصلاة اليومية والعبادة والمناسبات الدينية. مقاس واحد يناسب الوزن من 60 إلى 90 كجم، مع قماش خفيف الوزن جيد التهوية لجميع الفصول.",
-        price: "499.99 جنيه",
-        features: [
-          "✓ قماش قطني طبيعي ناعم: قطن عالي الجودة ناعم على البشرة ومزود بمسامات للتهوية",
-          "✓ تصميم محتشم: قصة واسعة وطويلة توفر تغطية كاملة ومريحة للصلاة",
-          "✓ مقاس واحد مناسب: يناسب النساء من 60 إلى 90 كيلوجرام بشكل مريح",
-          "✓ خفيف الوزن وجيد التهوية: يسمح بتدفق الهواء للحفاظ على البرودة في جميع الفصول",
-          "✓ مثالي للاستخدام اليومي: مناسب للصلاة في المنزل، المسجد، رمضان، والعمرة",
-          "✓ هدية مثالية: اختيار رائع للنساء الباحثات عن ملابس صلاة محتشمة وأنيقة",
-          "✓ سهل العناية: يمكن غسله في الغسالة",
-          "✓ خامة 100% قطن: طبيعية ومريحة للبشرة"
-        ],
-        specifications: [
-          { label: "العلامة التجارية", value: "Burak Tekstil" },
-          { label: "النوع", value: "روب صلاة / عباية" },
-          { label: "الفئة", value: "نساء" },
-          { label: "الخامة", value: "100% قطن" },
-          { label: "المقاس", value: "One Size (60-90 كجم)" },
-          { label: "الألوان المتاحة", value: "أسود، بيبي بلو، أزرق، بورغندي، رمادي، نعنع، وردي، أبيض" },
-          { label: "التصميم", value: "طول كامل - قصة واسعة - محتشم" },
-          { label: "نوع السحّاب", value: "سحب" },
-          { label: "العناية", value: "غسيل في الغسالة" },
-          { label: "الوزن", value: "700 جرام" },
-          { label: "الاستخدام", value: "صلاة - عبادة - مناسبات دينية" },
-          { label: "المناسبة", value: "رمضان - عمرة - صلوات يومية" }
-        ],
-        sizes: ["One Size (60-90 kg)"],
-        colors: ["أسود", "بيبي بلو", "أزرق", "بورغندي", "رمادي", "نعنع", "وردي", "أبيض"],
-        note: "هذا المنتج مصنوع من 100% قطن ناعم ومريح. المقاس الواحد يناسب الوزن من 60 إلى 90 كجم. تأكد من مراجعة جدول المقاسات على صفحة أمازون للتأكد من الملاءمة المناسبة. السعر الحالي 499.99 جنيه وقد يتغير.",
-        affiliateUrl: "https://link.amazon/B0angVkcm",
-        badge: "⭐ اختيار مميز",
-        featured: true,
-        active: true
-      }
-    ];
+   const products = [
+  // المنتج 1: KS4 للرجال
+  {
+    id: "ks4-shoe-001",
+    slug: "ks4-rajaly-abyad",
+    title: "حذاء رياضي أنيق KS4 للرجال باللون الأبيض والرمادي والأسود | حذاء جري خفيف الوزن بنعل مبطن | حذاء رياضي للارتداء اليومي",
+    brand: "KS4",
+    category: "shoes",
+    audience: "men",
+    categoryName: "أحذية رجالي",
+    image: "https://m.media-amazon.com/images/I/61f2irqUL1L._AC_SY695_.jpg",
+    gallery: [
+      "https://m.media-amazon.com/images/I/61tThOpYGXL._AC_SY695_.jpg",
+      "https://m.media-amazon.com/images/I/81Ch2iqmphL._AC_SY695_.jpg",
+      "https://m.media-amazon.com/images/I/61y2ogVRqnL._AC_SY695_.jpg"
+    ],
+    shortDescription: "حذاء رياضي أنيق KS4 للرجال بتصميم خفيف الوزن ومريح، مناسب للجري والمشي والتمارين اليومية. نعل مبطن يدعم القدم، وجلد صناعي جيد التهوية لراحة تدوم طوال اليوم.",
+    price: "1,295 جنيه",
+    features: ["خفيف الوزن ومريح", "مصنوع من جلد صناعي", "نعل مطاطي مانع للانزلاق"],
+    specifications: [
+      { label: "النوع", value: "حذاء رياضي" },
+      { label: "الفئة", value: "رجالي" },
+      { label: "الخامة", value: "جلد صناعي" }
+    ],
+    sizes: ["39", "40", "41", "42", "43"],
+    colors: ["أسود", "أبيض", "رمادي"],
+    note: "تأكد من اختيار المقاس المناسب بمراجعة جدول المقاسات على صفحة أمازون.",
+    affiliateUrl: "https://link.amazon/B0a0Ib987",
+    badge: "⭐ اختيار مميز",
+    featured: true,
+    active: true
+  },
+  // المنتج 2: Testa Toro M2 (Retro Look)
+  {
+    id: "testa-toro-m2-001",
+    slug: "retro-look-m2",
+    title: "حذاء رياضي ريترو لوك ام 2 للرجال من تيستا تورو - جزء علوي صناعي جيد التهوية، مريح مبطن، تصميم منخفض",
+    brand: "Testa Toro",
+    category: "shoes",
+    audience: "men",
+    categoryName: "أحذية رجالي",
+    image: "https://m.media-amazon.com/images/I/61rlfzrTkVL._AC_SY695_.jpg",
+    gallery: [
+      "https://m.media-amazon.com/images/I/51Nf+CyDSSL._AC_SY695_.jpg",
+      "https://m.media-amazon.com/images/I/519cI2MQ39L._AC_SY695_.jpg",
+      "https://m.media-amazon.com/images/I/51EQpviUOQL._AC_SY695_.jpg"
+    ],
+    shortDescription: "حذاء رياضي بتصميم عصري يجمع بين الراحة والأناقة. يتميز ببطانة مريحة وجزء علوي خفيف الوزن وجيد التهوية، مع نعل يمتص الصدمات. مناسب للارتداء اليومي والرياضي، ويتماشى مع الملابس الكاجوال والرياضية.",
+    price: "1,295 جنيه",
+    features: [
+      "راحة فائقة: بطانة متخصصة ونعل يمتص الصدمات للارتداء طوال اليوم",
+      "تهوية ممتازة: جزء علوي خفيف الوزن وجيد التهوية للحفاظ على برودة القدمين",
+      "تصميم عصري: ينسجم مع الملابس الكاجوال والرياضية",
+      "مواد متينة: منسوجات متطورة وجلد مقاوم للاهتراء",
+      "متعدد الاستخدامات: مناسب للارتداء اليومي والتمارين الرياضية",
+      "خفيف الوزن: يقلل من إجهاد القدمين أثناء المشي والجري"
+    ],
+    specifications: [
+      { label: "النوع", value: "حذاء رياضي كاجوال" },
+      { label: "الفئة", value: "رجالي" },
+      { label: "الخامة", value: "جلد صناعي + شبك" },
+      { label: "اللون", value: "أسود / أبيض / رمادي" },
+      { label: "المقاسات", value: "41 - 44" },
+      { label: "الاستخدام", value: "يومي - رياضي" },
+      { label: "النعل", value: "مطاط مانع للانزلاق" }
+    ],
+    sizes: ["41", "42", "43", "44"],
+    colors: ["أسود", "أبيض"],
+    note: "تأكد من اختيار المقاس المناسب بمراجعة جدول المقاسات على صفحة أمازون. السعر الحالي 1,295 جنيه وقد يتغير.",
+    affiliateUrl: "https://link.amazon/B07WTKtZ6",
+    badge: "⭐ اختيار مميز",
+    featured: true,
+    active: true
+  },
+  // المنتج 3: طقم نسائي 3 قطع (مرة واحدة فقط)
+  {
+    id: "women-set-419",
+    slug: "3-piece-womens-soft-set-code-419",
+    title: "سوت حريمي 3 قطع وايد ليج بدي + بنطلون + كارديجان مشجر طويل خامة مستوردة سوفت طقم شيك للخروجات والمناسبات كود 419",
+    brand: "",
+    category: "women",
+    audience: "women",
+    categoryName: "طقم نسائي شيك",
+    image: "https://m.media-amazon.com/images/I/61J41n+tHeL._AC_SY679_.jpg",
+    gallery: [
+      "https://m.media-amazon.com/images/I/41lb26u3qrL._AC_.jpg",
+      "https://m.media-amazon.com/images/I/41+rHy8Il-L._AC_.jpg",
+      "https://m.media-amazon.com/images/I/41Z+UnYleWL._AC_.jpg"
+    ],
+    shortDescription: "طقم أنيق وراقي مكون من 3 قطع: بدي وايد ليج مريح، بنطلون كلاسيك، وكارديجان طويل مشجر بكبسولات. خامة مستوردة ناعمة (سوفت) تناسب البشرة. مناسب للخروجات، العزومات، والمناسبات. كود المنتج: 419",
+    price: "899 جنيه",
+    features: [
+      "خامة مستوردة سوفت وناعمة",
+      "تصميم شيك وأنيق",
+      "مناسب للخروجات والمناسبات",
+      "3 قطع متكاملة (بدي + بنطلون + كارديجان)",
+      "كارديجان طويل مشجر بكبسولات أنيقة",
+      "وايد ليج بدي مريح وفضفاض"
+    ],
+    specifications: [
+      { label: "النوع", value: "طقم نسائي" },
+      { label: "الفئة", value: "حريمي" },
+      { label: "الخامة", value: "مستوردة سوفت" }
+    ],
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["اسود في بيج", "بترولي في بيج", "نبيتي في بيج"],
+    note: "السعر: 899.00 جنيه مصري 🇪🇬\n📏 يُرجى مراجعة جدول المقاسات قبل الطلب لضمان الحصول على المقاس المناسب.",
+    affiliateUrl: "https://link.amazon/B07MGGV0M",
+    badge: "⭐ اختيار مميز",
+    featured: true,
+    active: true
+  },
+  // المنتج 4: Testa Toro M2 (Retro) - إصدار بخصم 30%
+  {
+    id: "testa-toro-m2-002",
+    slug: "testa-toro-m2-retro",
+    title: "حذاء رياضي ريترو لوك ام 2 للرجال من تيستا تورو - جزء علوي صناعي جيد التهوية، مريح مبطن، تصميم منخفض",
+    brand: "Testa Toro",
+    category: "shoes",
+    audience: "men",
+    categoryName: "أحذية رجالي",
+    image: "https://m.media-amazon.com/images/I/617gdHBzaXL._AC_SY695_.jpg",
+    gallery: [
+      "https://m.media-amazon.com/images/I/61J78CjQQNL._AC_SY695_.jpg",
+      "https://m.media-amazon.com/images/I/71xVbRlqYdL._AC_SY695_.jpg",
+      "https://m.media-amazon.com/images/I/712OBrrdaVL._AC_SY695_.jpg",
+      "https://m.media-amazon.com/images/I/61jNbCq6BLL._AC_SY695_.jpg"
+    ],
+    shortDescription: "حذاء رياضي بتصميم ريترو عصري من تيستا تورو، يتميز بجزء علوي صناعي جيد التهوية وبطانة مريحة. تصميم منخفض بسحّاب انزلاقي للارتداء المريح بدون أربطة، مناسب للاستخدام اليومي والمشي في البيئات الداخلية والمكتبية.",
+    price: "439 جنيه",
+    features: [
+      "✓ إغلاق بسحّاب انزلاقي: تصميم مريح بدون أربطة أو أحزمة",
+      "✓ بناء كعب مسطح: توسيد معتدل لدعم مريح للمشي",
+      "✓ تصميم منخفض: مقدمة مستديرة مع تصميم كاب تو أنيق",
+      "✓ مناسب للاستخدام اليومي: مثالي للمشي في البيئات الداخلية والمكتبية والمدارس",
+      "✓ جيد التهوية: جزء علوي صناعي يسمح بتهوية ممتازة",
+      "✓ متعدد الاستخدامات: يناسب جميع الفصول والمناسبات الكاجوال"
+    ],
+    specifications: [
+      { label: "العلامة التجارية", value: "Testa Toro" },
+      { label: "النوع", value: "حذاء رياضي كاجوال (Retro Look)" },
+      { label: "الفئة", value: "رجالي" },
+      { label: "الخامة الخارجية", value: "مطاط" },
+      { label: "نوع السحّاب", value: "سحب (انزلاقي)" },
+      { label: "مستوى مقاومة الماء", value: "غير مقاومة للماء" },
+      { label: "اللون", value: "رمادي / أسود / كحلي / أبيض" },
+      { label: "المقاسات", value: "41 - 45" },
+      { label: "الارتفاع", value: "منخفض" },
+      { label: "الكعب", value: "كعب مسطح مع توسيد معتدل" },
+      { label: "الاستخدام", value: "يومي - مشي - مكتبي - داخلي" },
+      { label: "المقدمة", value: "مستديرة مع تصميم كاب تو" },
+      { label: "الفصول", value: "مناسب لجميع الفصول" }
+    ],
+    sizes: ["41", "42", "43", "44", "45"],
+    colors: ["رمادي", "أسود", "كحلي", "أبيض"],
+    note: "تأكد من اختيار المقاس المناسب بمراجعة مخطط المقاسات على صفحة أمازون. السعر الحالي 439 جنيه (كان 629 جنيه) وقد يتغير. هذا المنتج من العلامة التجارية Testa Toro.",
+    affiliateUrl: "https://link.amazon/B0fwmrgPk",
+    badge: "🔥 خصم 30%",
+    featured: true,
+    active: true
+  },
+  // المنتج 5: روب صلاة للنساء
+  {
+    id: "prayer-robe-001",
+    slug: "prayer-robe-women-cotton",
+    title: "روب صلاة للنساء مقاس واحد - فستان صلاة إسلامي من القطن عباية محتشمة للصلاة والعبادة",
+    brand: "Burak Tekstil",
+    category: "women",
+    audience: "women",
+    categoryName: "ملابس حريمي",
+    image: "https://m.media-amazon.com/images/I/61nEoIBj1EL._AC_SY606_.jpg",
+    gallery: [
+      "https://m.media-amazon.com/images/I/61oNF9eXcxL._AC_SY606_.jpg",
+      "https://m.media-amazon.com/images/I/71vSrdilhIL._AC_SX569_.jpg",
+      "https://m.media-amazon.com/images/I/715owwYvIGL._AC_SX569_.jpg",
+      "https://m.media-amazon.com/images/I/81GHVHhoWKL._AC_SX569_.jpg",
+      "https://m.media-amazon.com/images/I/819mhfvq1zL._AC_SX569_.jpg",
+      "https://m.media-amazon.com/images/I/71toIHpCkfL._AC_SX569_.jpg",
+      "https://m.media-amazon.com/images/I/61NRDvwGEfL._AC_SY606_.jpg"
+    ],
+    shortDescription: "روب صلاة قطني ناعم ومريح للنساء، مصمم بتغطية كاملة وقصة واسعة ومحتشمة. مناسب للصلاة اليومية والعبادة والمناسبات الدينية. مقاس واحد يناسب الوزن من 60 إلى 90 كجم، مع قماش خفيف الوزن جيد التهوية لجميع الفصول.",
+    price: "499.99 جنيه",
+    features: [
+      "✓ قماش قطني طبيعي ناعم: قطن عالي الجودة ناعم على البشرة ومزود بمسامات للتهوية",
+      "✓ تصميم محتشم: قصة واسعة وطويلة توفر تغطية كاملة ومريحة للصلاة",
+      "✓ مقاس واحد مناسب: يناسب النساء من 60 إلى 90 كيلوجرام بشكل مريح",
+      "✓ خفيف الوزن وجيد التهوية: يسمح بتدفق الهواء للحفاظ على البرودة في جميع الفصول",
+      "✓ مثالي للاستخدام اليومي: مناسب للصلاة في المنزل، المسجد، رمضان، والعمرة",
+      "✓ هدية مثالية: اختيار رائع للنساء الباحثات عن ملابس صلاة محتشمة وأنيقة",
+      "✓ سهل العناية: يمكن غسله في الغسالة",
+      "✓ خامة 100% قطن: طبيعية ومريحة للبشرة"
+    ],
+    specifications: [
+      { label: "العلامة التجارية", value: "Burak Tekstil" },
+      { label: "النوع", value: "روب صلاة / عباية" },
+      { label: "الفئة", value: "نساء" },
+      { label: "الخامة", value: "100% قطن" },
+      { label: "المقاس", value: "One Size (60-90 كجم)" },
+      { label: "الألوان المتاحة", value: "أسود، بيبي بلو، أزرق، بورغندي، رمادي، نعنع، وردي، أبيض" },
+      { label: "التصميم", value: "طول كامل - قصة واسعة - محتشم" },
+      { label: "نوع السحّاب", value: "سحب" },
+      { label: "العناية", value: "غسيل في الغسالة" },
+      { label: "الوزن", value: "700 جرام" },
+      { label: "الاستخدام", value: "صلاة - عبادة - مناسبات دينية" },
+      { label: "المناسبة", value: "رمضان - عمرة - صلوات يومية" }
+    ],
+    sizes: ["One Size (60-90 kg)"],
+    colors: ["أسود", "بيبي بلو", "أزرق", "بورغندي", "رمادي", "نعنع", "وردي", "أبيض"],
+    note: "هذا المنتج مصنوع من 100% قطن ناعم ومريح. المقاس الواحد يناسب الوزن من 60 إلى 90 كجم. تأكد من مراجعة جدول المقاسات على صفحة أمازون للتأكد من الملاءمة المناسبة. السعر الحالي 499.99 جنيه وقد يتغير.",
+    affiliateUrl: "https://link.amazon/B0angVkcm",
+    badge: "⭐ اختيار مميز",
+    featured: true,
+    active: true
+  }
+];
 
     // ============================================================
     // تحميل المنتجات من localStorage (للدمج)
